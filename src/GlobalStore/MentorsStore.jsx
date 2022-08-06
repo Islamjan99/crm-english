@@ -1,10 +1,10 @@
 import { makeAutoObservable } from 'mobx'
 import JWTdecode from 'jwt-decode'
 
-export default class UserStore {
+export default class MentorsStore {
 	constructor() {
 		this._isAuth = false
-		this._user = {}
+		this._mentors = []
 		this._role = {}
 		this._users = []
 
@@ -14,8 +14,9 @@ export default class UserStore {
 	setIsAuth(bool) {
 		this._isAuth = bool
 	}
-	setUser(bool) {
-		this._user = bool
+	setMentors(bool) {
+		this._mentors = { ...this._mentors, bool }
+		console.log(bool)
 	}
 	setRole(role) {
 		this._role = role
@@ -32,8 +33,8 @@ export default class UserStore {
 	get isAuth() {
 		return this._isAuth
 	}
-	get user() {
-		return this._user
+	get mentors() {
+		return this._mentors
 	}
 	get role() {
 		return this._role

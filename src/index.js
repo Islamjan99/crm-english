@@ -1,23 +1,28 @@
-import { createContext } from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import { createContext, StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import MentorsStore from './GlobalStore/MentorsStore'
+import StudentsStore from './GlobalStore/StudentsStore'
 import './Global.css'
 import App from './App'
-import UserStore from './GlobalStore/UserStore'
-import AdminStore from './GlobalStore/AdminStore'
+import { BrowserRouter } from 'react-router-dom'
+
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
 
 export const Context = createContext(null)
 
-ReactDOM.render(
-	<Context.Provider
-		value={{
-			user: new UserStore(),
-			device: new AdminStore(),
-		}}
-	>
-		<BrowserRouter>
-			<App />
-		</BrowserRouter>
-	</Context.Provider>,
-	document.getElementById('root')
+root.render(
+	<StrictMode>
+		<Context.Provider
+			value={{
+				MentorsStore: new MentorsStore(),
+				devStudentsStoreice: new StudentsStore(),
+			}}
+		>
+			<BrowserRouter>
+				<App />
+			</BrowserRouter>
+		</Context.Provider>
+		,
+	</StrictMode>
 )

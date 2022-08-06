@@ -1,0 +1,13 @@
+.header__wrapper {
+	display: flex;
+	justify-content: space-between;
+}
+.header__logo {
+	padding: 17px 0;
+	width: 130px;
+	display: flex;
+	justify-content: center;
+	background: #0f303f;
+	border-radius: 10px;
+	cursor: pointer;
+}

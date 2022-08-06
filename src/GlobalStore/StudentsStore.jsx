@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx'
 import JWTdecode from 'jwt-decode'
 
-export default class UserStore {
+export default class StudentsStore {
 	constructor() {
 		this._isAuth = false
 		this._user = {}
